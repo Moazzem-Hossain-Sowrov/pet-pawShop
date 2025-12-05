@@ -1,0 +1,170 @@
+
+
+[
+   {
+
+    "serviceId": 1,
+
+    "serviceName": "Winter Coat Fitting for Dogs",
+
+    "providerName": "PawCare Studio",
+
+    "providerEmail": "info@pawcare.com",
+
+    "price": 25,
+
+    "rating": 4.9,
+
+    "slotsAvailable": 4,
+
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+
+    "image": "https://i.postimg.cc/hjv0bDmM/download-(1).jpg",
+
+    "category": "Clothing"
+
+  },
+  {
+
+    "serviceId": 2,
+
+    "serviceName": "Winter Grooming & Paw Treatment",
+
+    "providerName": "CozyPets Grooming",
+
+    "providerEmail": "hello@cozypets.com",
+
+    "price": 30,
+
+    "rating": 4.8,
+
+    "slotsAvailable": 3,
+
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+
+    "image": "https://i.postimg.cc/T2St0DCw/paw-treatment.jpg",
+
+    "category": "Grooming"
+
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Dog Walking Adventure",
+    "providerName": "Happy Paws Walks",
+    "providerEmail": "contact@happypaws.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Daily walking sessions to keep your dog active and happy.",
+    "image": "https://i.postimg.cc/sDrwbrCC/download-(5).jpg",
+    "category": "Exercise"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Luxury Pet Boarding",
+    "providerName": "FurEver Stay",
+    "providerEmail": "stay@furever.com",
+    "price": 50,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Comfortable boarding with personalized care and playtime.",
+    "image": "https://i.postimg.cc/6pSRJr4T/pet-boading.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Puppy Training Sessions",
+    "providerName": "Smart Pups Academy",
+    "providerEmail": "train@smartpups.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Positive reinforcement training for obedience and social skills.",
+    "image": "https://i.postimg.cc/Pf35Rtw6/training.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Cat Grooming Deluxe",
+    "providerName": "Purrfect Groomers",
+    "providerEmail": "hello@purrfect.com",
+    "price": 35,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "Gentle grooming and fur care for your feline friends.",
+    "image": "https://i.postimg.cc/zGSm4jc0/gooming.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Pet Nutrition Consultation",
+    "providerName": "Healthy Paws Nutrition",
+    "providerEmail": "info@healthypaws.com",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Custom meal plans and dietary advice for pets of all sizes.",
+    "image": "https://i.postimg.cc/4dKXCctz/pet-Nutritions.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Dog Massage Therapy",
+    "providerName": "Relaxed Paws",
+    "providerEmail": "therapy@relaxedpaws.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Soothing massage to relieve stress and muscle tension in dogs.",
+    "image": "https://i.postimg.cc/BQ3fpkhp/massage.jpg",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Pet Photography Session",
+    "providerName": "Furry Memories Studio",
+    "providerEmail": "photos@furrymemories.com",
+    "price": 60,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Capture precious moments of your pets with professional photography.",
+    "image": "https://i.postimg.cc/RZqsLTz7/photo-Grap.jpg",
+    "category": "Photography"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Aquarium Cleaning Service",
+    "providerName": "AquaCare Experts",
+    "providerEmail": "support@aquacare.com",
+    "price": 50,
+    "rating": 4.5,
+    "slotsAvailable": 3,
+    "description": "Professional cleaning and maintenance of home aquariums.",
+    "image": "https://i.postimg.cc/bJR9hGhy/cleaning-service.jpg",
+    "category": "Maintenance"
+  },
+  {
+    "serviceId": 11,
+    "serviceName": "Pet Birthday Party Planner",
+    "providerName": "Paws & Parties",
+    "providerEmail": "party@pawsandparties.com",
+    "price": 70,
+    "rating": 4.8,
+    "slotsAvailable": 2,
+    "description": "Organize a fun and memorable birthday party for your pet.",
+    "image": "https://i.postimg.cc/d1XtD6vG/birthday.jpg",
+    "category": "Events"
+  },
+  {
+    "serviceId": 12,
+    "serviceName": "Pet Taxi Service",
+    "providerName": "Ride4Pets",
+    "providerEmail": "rides@ride4pets.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Safe and reliable transportation for your pets to vet visits or grooming.",
+    "image": "https://i.postimg.cc/tCGn5RQP/Pet-Taxi-Service.jpg",
+    "category": "Transport"
+  }
+]
