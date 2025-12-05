@@ -65,6 +65,9 @@ const Navbar = () => {
       <li>
         <Link to="/profile">My Profile</Link>
       </li>
+      <li>
+        <Link to="/add-services">Add Services</Link>
+      </li>
     </ul>
   </div>
 
