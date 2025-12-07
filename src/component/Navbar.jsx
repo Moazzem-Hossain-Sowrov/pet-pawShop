@@ -14,16 +14,16 @@ const Navbar = () => {
   const handleSignout = () => {
     signOut(auth)
   }
-  
 
 
- return (
+
+  return (
     <div className="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-12">
 
-      
+
       <div className="navbar-start flex items-center gap-2">
         <img
-          src={i3} 
+          src={i3}
           alt="Logo"
           className="w-10 h-10 rounded-full object-cover"
         />
@@ -32,18 +32,24 @@ const Navbar = () => {
         </Link>
       </div>
 
-      
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/Services">Services</Link></li>
-          <li><Link to="/profile">My Profile</Link></li>
-          <li><Link to="/add-services">Add Services</Link></li>
-          <li><Link to="/my-services">My Services</Link></li>
+          {
+            user && (
+              <>
+                <li><Link to="/profile">My Profile</Link></li>
+                <li><Link to="/add-services">Add Services</Link></li>
+                <li><Link to="/my-services">My Services</Link></li>
+              </>
+            )
+          }
         </ul>
       </div>
 
-     
+
       <div className="navbar-end flex items-center gap-2">
         {user ? (
           <>
@@ -65,7 +71,7 @@ const Navbar = () => {
         )}
       </div>
 
-    
+
       <div className="dropdown lg:hidden ml-auto">
         <label tabIndex={0} className="btn btn-ghost">
           <svg

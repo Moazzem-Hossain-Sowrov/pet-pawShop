@@ -44,13 +44,13 @@ const router = createBrowserRouter([
         element:<ForgetPass></ForgetPass>
       },{
         path: '/add-services',
-        element:<AddService></AddService>
+        element:<PrivateRoute><AddService></AddService></PrivateRoute>
       },{
         path: '/my-services',
-        element:<MyServices></MyServices>
+        element:<PrivateRoute><MyServices></MyServices></PrivateRoute>
       },{
         path: '/update-services/:id',
-        element:<UpdateService></UpdateService>
+        element:<PrivateRoute><UpdateService></UpdateService></PrivateRoute>
       }
     ]
   },

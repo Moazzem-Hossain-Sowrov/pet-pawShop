@@ -54,8 +54,7 @@ const UpdateService = () => {
     navigation('/my-services')
     
   }).catch(err=>{
-    console.log(err);
-    
+    console.log(err); 
   })
   
   }
