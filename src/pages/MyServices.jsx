@@ -23,7 +23,6 @@ const MyServices = () => {
 
       <div className="overflow-x-auto shadow-lg rounded-xl border border-gray-200">
         <table className="table">
-          {/* head */}
           <thead className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
             <tr>
               <th className="text-sm">Service</th>
@@ -37,7 +36,6 @@ const MyServices = () => {
             {myServices.map(service => (
               <tr key={service._id} className="hover:bg-gray-100 transition">
                 
-                {/* IMAGE + NAME */}
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -56,17 +54,14 @@ const MyServices = () => {
                   </div>
                 </td>
 
-                {/* DESCRIPTION */}
                 <td className="max-w-sm text-gray-600">
                   {service?.description?.slice(0, 60)}...
                 </td>
 
-                {/* PRICE */}
                 <td className="font-semibold text-blue-600">
                   ${service?.price}
                 </td>
 
-                {/* ACTION BUTTONS */}
                 <td className="flex gap-3 justify-center">
                   <Link to={`/update-services/${service?._id}`}><button className="btn btn-primary btn-xs rounded-md px-4">
                     Edit
