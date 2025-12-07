@@ -45,7 +45,6 @@ const router = createBrowserRouter([
         element:<AddService></AddService>
       }
     ]
-    
   },
 ]);
 

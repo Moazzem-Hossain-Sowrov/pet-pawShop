@@ -31,7 +31,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center my-10">
       <div className="avatar">
         <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
           <img src={user?.photoURL} />
