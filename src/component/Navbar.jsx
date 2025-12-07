@@ -23,7 +23,7 @@ const Navbar = () => {
       
       <div className="navbar-start flex items-center gap-2">
         <img
-          src={i3} // replace with your logo
+          src={i3} 
           alt="Logo"
           className="w-10 h-10 rounded-full object-cover"
         />
@@ -39,6 +39,7 @@ const Navbar = () => {
           <li><Link to="/Services">Services</Link></li>
           <li><Link to="/profile">My Profile</Link></li>
           <li><Link to="/add-services">Add Services</Link></li>
+          <li><Link to="/my-services">My Services</Link></li>
         </ul>
       </div>
 
@@ -85,6 +86,7 @@ const Navbar = () => {
           <li><Link to="/Services">Services</Link></li>
           <li><Link to="/profile">My Profile</Link></li>
           <li><Link to="/add-services">Add Services</Link></li>
+          <li><Link to="/my-services">My Services</Link></li>
           {user ? (
             <li><button onClick={handleSignout}>Logout</button></li>
           ) : (
