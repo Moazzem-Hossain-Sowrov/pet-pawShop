@@ -32,7 +32,7 @@ const Footer = () => {
             {/* middle section */}
             <nav className="space-y-2 text-sm flex flex-col">
                <h6 className="footer-title text-base">Useful Links</h6>
-               <a className="link link-hover"><Link to="/">Home</Link></a>
+               <a className="link link-hover">Home</a>
                <a className="link link-hover">Contact</a>
                <a className="link link-hover">Terms & Conditions</a>
                <a className="link link-hover">Services</a>

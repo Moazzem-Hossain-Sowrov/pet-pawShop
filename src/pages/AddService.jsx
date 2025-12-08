@@ -2,6 +2,7 @@ import { div } from "motion/react-client";
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddService = () => {
 
@@ -9,36 +10,51 @@ const AddService = () => {
 
 
   const handleSubmit = (e) => {
-  e.preventDefault();
-  const form = e.target;
+    e.preventDefault();
+    const form = e.target;
 
-  const name = form.name.value;
-  const category = form.category.value;
-  const price = parseInt(form.price.value);
-  const location = form.location.value;
-  const description = form.description.value;
-  const image = form.image.value;
-  const date = form.date.value;
-  const email = form.email.value;
+    const name = form.name.value;
+    const category = form.category.value;
+    const price = parseInt(form.price.value);
+    const location = form.location.value;
+    const description = form.description.value;
+    const image = form.image.value;
+    const date = form.date.value;
+    const email = form.email.value;
 
-  const formData = {
-    name,
-    category,
-    price,
-    location,
-    description,
-    image,
-    date,
-    email,
+    const formData = {
+      name,
+      category,
+      price,
+      location,
+      description,
+      image,
+      date,
+      email,
+    };
+
+
+
+    axios.post('http://localhost:3000/services', formData)
+      .then(res => {
+        console.log(res);
+        if (res.data.acknowledged) {
+          Swal.fire({
+            title: "Service is created successfully!",
+            icon: "success",
+            draggable: true
+          });
+          e.target.reset()
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+
+      })
   };
-
-  console.log(formData);
-
-  axios.post('http://localhost:3000/services', formData)
-  .then(res=>{
-    console.log(res);
-  })
-};
 
 
 
