@@ -12,7 +12,7 @@ const ServiceDetails = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:3000/services/${myId}`)
+    fetch(`backend-nine-chi-23.vercel.app/services/${myId}`)
       .then((res) => res.json())
       .then((data) => setServiceDetails(data))
       .catch((err) => console.error("Error loading services:", err));
@@ -43,7 +43,7 @@ const ServiceDetails = () => {
       date: new Date(),
     }
 
-    axios.post('http://localhost:3000/orders',formData)
+    axios.post('backend-nine-chi-23.vercel.app/orders',formData)
     .then(res =>{
       console.log(res);
       

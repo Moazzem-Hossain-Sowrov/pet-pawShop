@@ -8,7 +8,7 @@ const PopularSection = () => {
   const [Services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/services')
+    fetch('backend-nine-chi-23.vercel.app/services')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.log(err))
