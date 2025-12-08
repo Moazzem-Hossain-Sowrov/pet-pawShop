@@ -11,7 +11,7 @@ const MyServices = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`backend-nine-chi-23.vercel.app/my-services?email=${user.email}`)
+    fetch(`http://backend-nine-chi-23.vercel.app/my-services?email=${user.email}`)
       .then(res => res.json())
       .then(data => setMyServices(data))
       .catch(err => console.log(err));
@@ -30,7 +30,7 @@ const MyServices = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        axios.delete(`backend-nine-chi-23.vercel.app/delete/${id}`)
+        axios.delete(`http://backend-nine-chi-23.vercel.app/delete/${id}`)
       .then(res => {
         console.log(res.data);
         if (res.data.deletedCount==1) {

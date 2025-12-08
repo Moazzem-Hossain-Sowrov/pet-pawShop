@@ -8,7 +8,7 @@ const Services = () => {
   const [category, setCategory] = useState('')
 
   useEffect(() => {
-    fetch(`backend-nine-chi-23.vercel.app/services?category=${category}`)
+    fetch(`http://backend-nine-chi-23.vercel.app/services?category=${category}`)
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.log(err))

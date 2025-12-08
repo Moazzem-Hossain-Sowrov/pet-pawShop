@@ -12,7 +12,7 @@ const UpdateService = () => {
   const navigation = useNavigate()
 
   useEffect(() => {
-    axios.get(`backend-nine-chi-23.vercel.app/services/${id}`)
+    axios.get(`http://backend-nine-chi-23.vercel.app/services/${id}`)
       .then(res => {
         setService(res.data)
         setCategory(res.data.category)
@@ -48,7 +48,7 @@ const UpdateService = () => {
     createdAt: service?.createdAt,
   };
   console.log(formData);
-  axios.put(`backend-nine-chi-23.vercel.app/update/${id}` ,formData)
+  axios.put(`http://backend-nine-chi-23.vercel.app/update/${id}` ,formData)
   .then(res=>{
     console.log(res.data);
     navigation('/my-services')

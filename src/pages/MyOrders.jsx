@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('backend-nine-chi-23.vercel.app/orders')
+    axios.get('http://backend-nine-chi-23.vercel.app/orders')
       .then(res => {
         setMyOrders(res.data);
       }).catch(err => {

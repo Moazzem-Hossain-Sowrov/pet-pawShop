@@ -35,7 +35,7 @@ const AddService = () => {
 
 
 
-    axios.post('backend-nine-chi-23.vercel.app/services', formData)
+    axios.post('http://backend-nine-chi-23.vercel.app/services', formData)
       .then(res => {
         console.log(res);
         if (res.data.acknowledged) {
