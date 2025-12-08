@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
 
 const ServiceDetails = () => {
 
@@ -16,6 +17,43 @@ const ServiceDetails = () => {
       .then((data) => setServiceDetails(data))
       .catch((err) => console.error("Error loading services:", err));
   }, [myId]);
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const productName = form.productName.value
+    const buyerName = form.buyerName.value
+    const Price = parseInt(form.Price.value)
+    const buyerEmail = form.buyerEmail.value
+    const quantity = parseInt(form.quantity.value)
+    const Address = form.Address.value
+    const Phone = form.Phone.value
+    const Note = form.Note.value
+
+    const formData = {
+      productId:myId,
+      productName,
+      buyerName,
+      Price,
+      buyerEmail,
+      quantity,
+      Address,
+      Phone,
+      Note,
+      date: new Date(),
+    }
+
+    axios.post('http://localhost:3000/orders',formData)
+    .then(res =>{
+      console.log(res);
+      
+    }).catch(err=>{
+      console.log(err);
+      
+    })
+
+
+  }
 
 
 
@@ -63,14 +101,15 @@ const ServiceDetails = () => {
 
 
       {/* Modal  */}
-      <button className="btn btn-primary mt-3" onClick={() => document.getElementById('my_modal_3').showModal()}>Adapt/Order</button>
+      <button className="btn btn-primary mt-3" onClick={() => document.getElementById('my_modal_3').showModal()}>Adopt/Order</button>
+
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
           {/* form */}
-          <fieldset className="bg-base-200 border border-base-300 rounded-2xl p-6 w-full max-w-lg mx-auto shadow-lg">
+          <form onSubmit={handleOrder} className="bg-base-200 border border-base-300 rounded-2xl p-6 w-full max-w-lg mx-auto shadow-lg">
             <legend className="text-2xl font-semibold px-2">Order Details</legend>
 
             <div className="flex flex-col gap-5 mt-3">
@@ -79,12 +118,12 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Product Name</label>
                 <input
-                defaultValue={serviceDetails?.name}
+                  name="productName"
+                  defaultValue={serviceDetails?.name}
                   readOnly
                   type="text"
                   className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Product Name.."
-                  
                 />
               </div>
 
@@ -92,7 +131,8 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Buyer Name</label>
                 <input
-                defaultValue={user?.displayName}
+                  name="buyerName"
+                  defaultValue={user?.displayName}
                   type="text"
                   className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Name.."
@@ -103,6 +143,7 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Buyer Email</label>
                 <input
+                  name="buyerEmail"
                   type="email"
                   className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Email.."
@@ -116,6 +157,8 @@ const ServiceDetails = () => {
                 <div className="form-control">
                   <label className="label font-medium">Quantity</label>
                   <input
+                    required
+                    name="quantity"
                     type="number"
                     className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                     placeholder="Product Quantity"
@@ -125,6 +168,7 @@ const ServiceDetails = () => {
                 <div className="form-control">
                   <label className="label font-medium">Price</label>
                   <input
+                    name="Price"
                     type="number"
                     className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                     placeholder="Price"
@@ -138,6 +182,8 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Address</label>
                 <input
+                  required
+                  name="Address"
                   type="text"
                   className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Address.."
@@ -148,6 +194,8 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Phone</label>
                 <input
+                  required
+                  name="Phone"
                   type="text"
                   className="input input-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Your Number"
@@ -158,6 +206,7 @@ const ServiceDetails = () => {
               <div className="form-control">
                 <label className="label font-medium">Additional Note</label>
                 <textarea
+                  name="Note"
                   className="textarea textarea-bordered w-full focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="Additional Note"
                 ></textarea>
@@ -171,7 +220,7 @@ const ServiceDetails = () => {
               </button>
 
             </div>
-          </fieldset>
+          </form>
 
 
 

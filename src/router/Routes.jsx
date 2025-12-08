@@ -12,6 +12,7 @@ import Error from "../pages/Error";
 import AddService from "../pages/AddService";
 import MyServices from "../pages/MyServices";
 import UpdateService from "../pages/UpdateService";
+import MyOrders from "../pages/MyOrders";
 
 
 
@@ -51,6 +52,9 @@ const router = createBrowserRouter([
       },{
         path: '/update-services/:id',
         element:<PrivateRoute><UpdateService></UpdateService></PrivateRoute>
+      },{
+        path: '/my-orders',
+        element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>
       }
     ]
   },
