@@ -8,27 +8,33 @@ const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('http://backend-nine-chi-23.vercel.app/orders')
+    axios.get('https://backend-nine-chi-23.vercel.app/orders')
       .then(res => {
         setMyOrders(res.data);
       }).catch(err => {
-        console.log(err);
+        console.error('Error fetching orders:', err);
       })
   }, [])
 
 
   const formatDateTime = (dateString) => {
-  const date = new Date(dateString);
-
-  return date.toLocaleString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true
-  });
-};
+    if (!dateString) return 'N/A';
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'Invalid Date';
+      
+      return date.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      });
+    } catch (error) {
+      return 'Invalid Date';
+    }
+  };
 
 
 
@@ -52,7 +58,7 @@ const MyOrders = () => {
         <tbody>
           {
             myOrders.map((order, index) =>
-              <tr>
+              <tr key={order._id || index}>
                 <th>{index + 1}</th>
                 <td>{order?.productName}</td>
                 <td>{order?.Phone}</td>

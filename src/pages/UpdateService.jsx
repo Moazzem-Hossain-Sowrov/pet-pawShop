@@ -12,7 +12,7 @@ const UpdateService = () => {
   const navigation = useNavigate()
 
   useEffect(() => {
-    axios.get(`http://backend-nine-chi-23.vercel.app/services/${id}`)
+    axios.get(`https://backend-nine-chi-23.vercel.app/services/${id}`)
       .then(res => {
         setService(res.data)
         setCategory(res.data.category)
@@ -39,7 +39,7 @@ const UpdateService = () => {
   const formData = {
     name,
     category,
-    price,
+    Price: price,  // MongoDB uses Price (capital P)
     location,
     description,
     image,
@@ -47,14 +47,13 @@ const UpdateService = () => {
     email,
     createdAt: service?.createdAt,
   };
-  console.log(formData);
-  axios.put(`http://backend-nine-chi-23.vercel.app/update/${id}` ,formData)
+  
+  axios.put(`https://backend-nine-chi-23.vercel.app/update/${id}` ,formData)
   .then(res=>{
-    console.log(res.data);
     navigation('/my-services')
     
   }).catch(err=>{
-    console.log(err); 
+    console.error('Error updating service:', err); 
   })
   
   }
@@ -101,7 +100,7 @@ const UpdateService = () => {
         <div>
           <label className="font-medium">Price</label>
           <input
-          defaultValue={service?.price}
+          defaultValue={service?.Price}
             type="number"
             name="price"
             className="w-full mt-1 p-2 border rounded-md"

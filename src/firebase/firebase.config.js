@@ -15,10 +15,36 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APPID,
 };
 
+// Validate Firebase configuration
+const requiredEnvVars = [
+  'VITE_APIKEY',
+  'VITE_AUTHDOMAIN',
+  'VITE_PROJECTID',
+  'VITE_STORAGEBUCKET',
+  'VITE_MESSAGINGSENDERID',
+  'VITE_APPID'
+];
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const missingVars = requiredEnvVars.filter(varName => !import.meta.env[varName]);
 
-const auth = getAuth(app);
+if (missingVars.length > 0) {
+  console.error('❌ Missing Firebase environment variables:', missingVars);
+  console.error('Please create a .env file in the assignment_10 directory with all VITE_ variables');
+} else {
+  console.log('✅ Firebase configuration loaded successfully');
+}
+
+let app, analytics, auth;
+
+try {
+  app = initializeApp(firebaseConfig);
+  analytics = getAnalytics(app);
+  auth = getAuth(app);
+  
+  console.log('✅ Firebase initialized successfully');
+} catch (error) {
+  console.error('❌ Firebase initialization error:', error);
+  throw error;
+}
 
 export default auth;

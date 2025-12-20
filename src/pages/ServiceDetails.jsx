@@ -2,20 +2,34 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
 
-  const [service, setService] = useState([]);
   const [serviceDetails, setServiceDetails] = useState(null);
   const { myId } = useParams();
   const { user } = useContext(AuthContext)
 
 
   useEffect(() => {
-    fetch(`http://backend-nine-chi-23.vercel.app/services/${myId}`)
-      .then((res) => res.json())
+    if (!myId) return;
+    
+    fetch(`https://backend-nine-chi-23.vercel.app/services/${myId}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch service details');
+        }
+        return res.json();
+      })
       .then((data) => setServiceDetails(data))
-      .catch((err) => console.error("Error loading services:", err));
+      .catch((err) => {
+        console.error("Error loading services:", err);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to load service details. Please try again.",
+        });
+      });
   }, [myId]);
 
   const handleOrder = (e) => {
@@ -43,13 +57,22 @@ const ServiceDetails = () => {
       date: new Date(),
     }
 
-    axios.post('http://backend-nine-chi-23.vercel.app/orders',formData)
+    axios.post('https://backend-nine-chi-23.vercel.app/orders',formData)
     .then(res =>{
-      console.log(res);
-      
+      if (res.data.acknowledged) {
+        Swal.fire({
+          title: "Order placed successfully!",
+          icon: "success",
+        });
+        document.getElementById('my_modal_3').close();
+      }
     }).catch(err=>{
-      console.log(err);
-      
+      console.error('Error placing order:', err);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed to place order. Please try again.",
+      });
     })
 
 
@@ -64,7 +87,7 @@ const ServiceDetails = () => {
           <img
             src={serviceDetails.image}
             alt={serviceDetails.name}
-            className="w-full h-64 object-cover rounded-md mb-6"
+            className="w-full h-80 object-cover rounded-md mb-6"
           />
 
           <h1 className="text-3xl font-bold mb-3">

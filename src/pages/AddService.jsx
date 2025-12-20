@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
@@ -25,7 +24,7 @@ const AddService = () => {
     const formData = {
       name,
       category,
-      price,
+      Price: price,  // MongoDB uses Price (capital P)
       location,
       description,
       image,
@@ -35,9 +34,8 @@ const AddService = () => {
 
 
 
-    axios.post('http://backend-nine-chi-23.vercel.app/services', formData)
+      axios.post('https://backend-nine-chi-23.vercel.app/services', formData)
       .then(res => {
-        console.log(res);
         if (res.data.acknowledged) {
           Swal.fire({
             title: "Service is created successfully!",
@@ -53,6 +51,14 @@ const AddService = () => {
           });
         }
 
+      })
+      .catch(err => {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Failed to create service. Please try again.",
+        });
       })
   };
 

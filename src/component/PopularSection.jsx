@@ -8,15 +8,20 @@ const PopularSection = () => {
   const [Services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('http://backend-nine-chi-23.vercel.app/services')
-      .then(res => res.json())
+    fetch('https://backend-nine-chi-23.vercel.app/services')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch services');
+        }
+        return res.json();
+      })
       .then(data => setServices(data))
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.error('Error fetching services:', err);
+        setServices([]);
+      })
 
   }, [])
-
-  console.log(Services);
-  
 
   return (
     <div className="lg:px-[120px] sm:px-5 px-10">
@@ -29,7 +34,7 @@ const PopularSection = () => {
       <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
         {
           Services.slice(0, 3).map((service) => (
-            <div key={service.serviceId} className="card bg-base-100 shadow-md w-full sm:w-full">
+            <div key={service._id} className="card bg-base-100 shadow-md w-full sm:w-full">
               <figure>
                 <img
                   className="w-full h-[300px] sm:h-64 object-cover"
@@ -40,7 +45,7 @@ const PopularSection = () => {
               <div className="card-body">
                 <h2 className="card-title">{service?.name}</h2>
                 <div className="flex justify-between">
-                  <p>Price: {service?.price}</p>
+                  <p>Price: {service?.Price}</p>
                   <p>Date: {service?.date}</p>
                 </div>
                 <div className="card-actions justify-end">

@@ -11,10 +11,18 @@ const MyServices = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://backend-nine-chi-23.vercel.app/my-services?email=${user.email}`)
-      .then(res => res.json())
+    fetch(`https://backend-nine-chi-23.vercel.app/my-services?email=${user.email}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch services');
+        }
+        return res.json();
+      })
       .then(data => setMyServices(data))
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.error('Error fetching my services:', err);
+        setMyServices([]);
+      });
   }, [user?.email]);
 
   const handleDelete = (id) => {
@@ -30,9 +38,8 @@ const MyServices = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        axios.delete(`http://backend-nine-chi-23.vercel.app/delete/${id}`)
+        axios.delete(`https://backend-nine-chi-23.vercel.app/delete/${id}`)
       .then(res => {
-        console.log(res.data);
         if (res.data.deletedCount==1) {
           const filterData = myServices.filter(service => service._id != id)
         setMyServices(filterData)
@@ -46,8 +53,12 @@ const MyServices = () => {
         
 
       }).catch(err => {
-        console.log(err);
-
+        console.error('Error deleting service:', err);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to delete service. Please try again.",
+        });
       })
        
       }
@@ -102,7 +113,7 @@ const MyServices = () => {
                 </td>
 
                 <td className="font-semibold text-blue-600">
-                  ${service?.price}
+                  ${service?.Price}
                 </td>
 
                 <td className="flex gap-3 justify-center">

@@ -1,10 +1,11 @@
-Website Name: PawMart
+Website Name: PawMart ;
 
-Live URL:
+Live URL: https://pet-adoption-d7dd1.web.app;
 
 
 About PawMart : {
-  1. A platform where users can adopt pets or buy pet supplies.
+
+ 1. A platform where users can adopt pets or buy pet supplies.
 
  2. Users can log in/register using Email/Password or Google (Firebase Auth).
 
@@ -19,4 +20,5 @@ About PawMart : {
  7. Fully responsive design with Tailwind + DaisyUI.
 
 8. Supports Dark/Light theme toggle.
+
 }
